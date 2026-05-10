@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Estudiante.h"
+#include "Validaciones.h"
 using namespace std;
 int main()
 {
@@ -23,6 +24,29 @@ int main()
 	cout << "ingrese tipo de sangre:";
 	cin >> id_tipo_sangre;
 
+
+	//Validaciones 
+
+	if (!Validaciones::validarCodigo(codigo))
+		return 0;
+
+
+	if (!Validaciones::validarNombre(nombres))
+		return 0;
+
+	if (!Validaciones::validarApellido(apellidos))
+		return 0;
+
+	if (!Validaciones::validarDireccion(direccion))
+		return 0;
+
+	if (!Validaciones::validarTelefono(to_string(telefono)))
+		return 0;
+
+	if (!Validaciones::validarFechaNacimiento(fecha_nacimiento))
+		return 0;
+
+
 	Estudiante e = Estudiante(id_estudiante, codigo, nombres, apellidos, direccion, fecha_nacimiento, telefono, id_tipo_sangre);
 	e.crear();
 	e.leer();
@@ -43,6 +67,25 @@ int main()
 	getline(cin, fecha_nacimiento);
 	cout << "ingrese tipo de sangre: ";
 	cin >> id_tipo_sangre;
+
+	//validaciones 
+	if (!Validaciones::validarCodigo(codigo))
+		return 0;
+
+	if (!Validaciones::validarNombre(nombres))
+		return 0;
+
+	if (!Validaciones::validarApellido(apellidos))
+		return 0;
+
+	if (!Validaciones::validarDireccion(direccion))
+		return 0;
+
+	if (!Validaciones::validarTelefono(to_string(telefono)))
+		return 0;
+
+	if (!Validaciones::validarFechaNacimiento(fecha_nacimiento))
+		return 0;
 
 	e.setId_estudiante(id_estudiante);
 	e.setcodigo(codigo);
